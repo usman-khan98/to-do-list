@@ -3,15 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const app = express();
-//local connection
-//mongoose.connect("mongodb://localhost:27017/todolistDB");
-
 //connect with atlas mongodb
 mongoose.connect("mongodb+srv://admin:admin@cluster0.dycul.mongodb.net/todolistDB");
-
-//shell command to connect with atlas mongodb
-// $ mongo "mongodb+srv://cluster0.dycul.mongodb.net/testDB" --username admin
-// password: admin    username: admin
 
 app.use(express.static(__dirname + '/public'));
 
@@ -143,12 +136,7 @@ app.post("/delete", function(req, res){
   }
 
 })
-            // local host 3000 port only
-// app.listen(3000, function() {
-//   console.log("server running at port 3000");
-// });
-
-            // for both
+            
 app.listen(process.env.PORT || 3000, function() {
-  console.log("Server running on port:3000 and Heroku");
+  console.log("Server running on port:3000");
 });
